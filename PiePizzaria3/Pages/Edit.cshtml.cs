@@ -13,7 +13,9 @@ namespace PiePizzaria3.Pages.Pies
     public class EditModel : PageModel
     {
         private readonly PiePizzaria3.Models.PiePizzariaContext _context;
-
+        public Microsoft.AspNetCore.Http.IFormFile file { get; set; }
+        [BindProperty]
+        public byte[] Image { get; set; }
         public EditModel(PiePizzaria3.Models.PiePizzariaContext context)
         {
             _context = context;
@@ -45,10 +47,20 @@ namespace PiePizzaria3.Pages.Pies
                 return Page();
             }
 
+            
             _context.Attach(Pie).State = EntityState.Modified;
 
             try
             {
+                using (var stream = new System.IO.MemoryStream())
+                {
+                    file.CopyTo(stream);
+                    this.Image = stream.ToArray();
+                }
+
+                Pie.Image = this.Image;
+                Pie.ImageContentType = "file";
+
                 await _context.SaveChangesAsync();
             }
             catch (DbUpdateConcurrencyException)
