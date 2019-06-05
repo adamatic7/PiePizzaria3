@@ -1,0 +1,64 @@
+﻿@page
+@model PiePizzaria3.Pages.Pies.DeleteModel
+
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>Pie</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Pie.Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Pie.Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Pie.ShortDescription)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Pie.ShortDescription)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Pie.LongDescription)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Pie.LongDescription)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Pie.Price)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Pie.Price)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Pie.ImageUrl)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Pie.ImageUrl)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Pie.ImageThumbnailUrl)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Pie.ImageThumbnailUrl)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Pie.IsPieOfTheWeek)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Pie.IsPieOfTheWeek)
+        </dd>
+    </dl>
+    
+    <form method="post">
+        <input type="hidden" asp-for="Pie.Id" />
+        <input type="submit" value="Delete" class="btn btn-default" /> |
+        <a asp-page="./Index">Back to List</a>
+    </form>
+</div>

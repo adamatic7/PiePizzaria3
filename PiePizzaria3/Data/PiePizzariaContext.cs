@@ -3,20 +3,23 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-using PiePizzaria3.Models;
 
-namespace PiePizzaria3.Data
+namespace PiePizzaria3.Models
 {
-    public class PiePizzaContext : DbContext
+    public class PiePizzariaContext : DbContext
     {
-        public PiePizzaContext(DbContextOptions<PiePizzaContext> options) : base(options)
+        public PiePizzariaContext (DbContextOptions<PiePizzariaContext> options)
+            : base(options)
         {
         }
-        public DbSet<Pie> Pies { get; set; }
+
+        public DbSet<PiePizzaria3.Models.Pie> Pie { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             modelBuilder.Entity<Pie>().ToTable("Pie");
+
+
         }
     }
 }

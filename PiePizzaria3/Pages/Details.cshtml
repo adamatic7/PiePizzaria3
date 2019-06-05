@@ -1,0 +1,61 @@
+﻿@page
+@model PiePizzaria3.Pages.Pies.DetailsModel
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>Pie</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Pie.Name)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Pie.Name)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Pie.ShortDescription)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Pie.ShortDescription)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Pie.LongDescription)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Pie.LongDescription)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Pie.Price)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Pie.Price)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Pie.ImageUrl)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Pie.ImageUrl)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Pie.ImageThumbnailUrl)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Pie.ImageThumbnailUrl)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Pie.IsPieOfTheWeek)
+        </dt>
+        <dd>
+            @Html.DisplayFor(model => model.Pie.IsPieOfTheWeek)
+        </dd>
+    </dl>
+</div>
+<div>
+    <a asp-page="./Edit" asp-route-id="@Model.Pie.Id">Edit</a> |
+    <a asp-page="./Index">Back to List</a>
+</div>
